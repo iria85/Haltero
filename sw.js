@@ -1,6 +1,6 @@
 // Haltero · service worker: guarda la app para que funcione sin conexión en el box.
 // Cuando cambies la app, sube el número de VERSION para que el iPhone descargue la nueva.
-const VERSION = "haltero-v2";
+const VERSION = "haltero-v3";
 const FILES = ["./", "index.html", "programs/halterofilia.js", "manifest.webmanifest",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-512-maskable.png"];
 
