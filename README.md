@@ -1,6 +1,6 @@
 # Haltero
 
-App de **halterofilia** para iPhone: programación de 42 sesiones con los kilos calculados a partir de tus RMs, discos por lado, dibujo de la barra, contador de series en los descansos, resultados y copia de seguridad.
+App de **halterofilia** para iPhone: programación de 42 sesiones con los kilos calculados a partir de tus RMs, discos por lado, dibujo de la barra, contador de series en los descansos y resultados.
 
 Es una **app web instalable**, así que no hace falta Mac, Xcode ni cuenta de desarrollador de Apple.
 
@@ -27,4 +27,4 @@ Cambia los archivos, sube **`VERSION` en `sw.js`** (por ejemplo, `haltero-v2`) y
 - `sw.js`: guarda la app para que funcione sin internet.
 - `manifest.webmanifest` e `icons/`: nombre e icono en la pantalla de inicio.
 
-Los RMs, los resultados y las series marcadas se guardan en el iPhone, dentro de la app. Si borras la app de la pantalla de inicio, se borran. Antes, haz una copia en **Ajustes → Copia de seguridad**. Las copias de la app Android (Vida) también se pueden restaurar aquí.
+Los RMs, los resultados y las series marcadas se guardan en el iPhone, dentro de la app. Si borras la app de la pantalla de inicio, se borran.

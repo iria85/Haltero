@@ -526,7 +526,7 @@ function colorOf(id){ return PROFILES.find(p => p.id === id).color; }
 function renderHome(){
   const t = todayMid();
   app.innerHTML = `
-    <div class="brand"><div><h1>Haltero</h1><p>Iria R.A.</p></div>
+    <div class="brand"><div></div>
       <div class="hbtns"><button class="gear rm" data-act="rms">Mis RMs</button>${ARCH.length ? `<button class="gear arc" data-act="arclist">Archivo</button>` : ""}<button class="gear" data-act="settings">Ajustes</button></div></div>
     <div class="profiles">${PROFILES.map(p => {
       const pr = prog(p.id), ds = sessionDates(p.id);
@@ -544,8 +544,7 @@ function renderHome(){
           <div class="next">${label}: <b>Entreno ${pr.days[i].n}</b>${d ? " · " + DIAS_L[d.getDay()] + " " + fmtS(d) : ""}</div>
           <div class="sub">${pr.days.length} sesiones${wds ? " · " + wds : ""}</div>
           <div class="progress"><i style="width:${i/pr.days.length*100}%"></i></div></button>`;
-    }).join("")}</div>
-    <p class="hint">Todo se guarda en este iPhone, dentro de la app. Haz de vez en cuando una copia de seguridad en Ajustes.</p>`;
+    }).join("")}</div>`;
 }
 
 /* ---------- Nutrición ---------- */
@@ -669,7 +668,6 @@ function renderSession(){
     <main>${d.ex.map((e, ei) => exHtml(id, i, e, ei)).join("")}</main>
     ${date ? postponeHtml(id, i, d, date) : ""}
     <div class="tools">
-      <button class="btn" data-act="copy">Copiar entreno</button>
       <button class="btn ghost" data-act="jump">Ir a la de esta semana</button>
     </div>
     <p class="hint">Toca una fila para marcar la serie como hecha. Notación: <b>% · series × reps</b>. «3+2» es un complejo: 3 reps del primer ejercicio y 2 del segundo. En complejos el % se calcula sobre el RM más bajo de los ejercicios que lo forman.</p>
@@ -1298,15 +1296,7 @@ function renderSettings(){
         <div class="field"><label>Días que entrenas</label><div class="wd">${WD_ORDER.map(w => `<label><input type="checkbox" data-wd="${p.id}" value="${w}" ${c.weekdays.includes(w) ? "checked" : ""}><span>${DIAS_C[w]}</span></label>`).join("")}</div></div>
         <div class="field" style="max-width:220px"><label for="st-${p.id}">Fecha de la primera sesión</label><input type="date" id="st-${p.id}" data-start="${p.id}" value="${c.start || ""}"></div>
       </div>`; }).join("")}
-      <p class="hint" style="margin:0">Si un día no puedes ir, entra en esa sesión y usa «No hice esta sesión»: pasa al siguiente día de entreno y todo se recoloca. En CrossFit, las sesiones que ya tienen fecha la mantienen; los días que marques se usan para las sesiones nuevas que lleguen sin fecha.</p>
-    </section>
-    <section class="cfg backup">
-      <h3>Copia de seguridad</h3>
-      <p class="hint" style="margin:0">Tus RMs, resultados, series marcadas y menús elegidos viven dentro de la app. Si la desinstalas, se borran. Copia este texto y guárdalo (en notas, un correo a ti mismo…) para poder restaurarlo después.</p>
-      <div class="btnrow"><button class="btn" data-act="bkcopy">Copiar copia de seguridad</button></div>
-      <label class="ok" for="bk-in">Para restaurar, pega aquí una copia y pulsa Restaurar:</label>
-      <textarea id="bk-in" placeholder='{"rm":…}'></textarea>
-      <div class="btnrow"><button class="btn ghost" data-act="bkrestore">Restaurar</button><span class="ok" id="bk-msg" aria-live="polite"></span></div>
+      <p class="hint" style="margin:0">Si un día no puedes ir, entra en esa sesión y usa «No hice esta sesión»: pasa al siguiente día de entreno y todo se recoloca.</p>
     </section>`;
   document.getElementById("bar").value = barKg;
   document.getElementById("step").value = step;
